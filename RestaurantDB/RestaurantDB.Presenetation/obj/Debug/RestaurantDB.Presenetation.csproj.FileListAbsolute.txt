@@ -1,1 +1,14 @@
 Z:\DUMP\EF\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\RestaurantDB.Presenetation.exe.config
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\RestaurantDB.Presenetation.exe.config
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\RestaurantDB.Presenetation.exe
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\RestaurantDB.Presenetation.pdb
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\obj\Debug\RestaurantDB.Presenetation.csprojResolveAssemblyReference.cache
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\obj\Debug\RestaurantDB.Presenetation.Properties.Resources.resources
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\obj\Debug\RestaurantDB.Presenetation.csproj.GenerateResource.Cache
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\obj\Debug\RestaurantDB.Presenetation.exe
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\obj\Debug\RestaurantDB.Presenetation.pdb
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\EntityFramework.dll
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\EntityFramework.xml
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\RestaurantDB.Data.dll
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\RestaurantDB.Data.pdb
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\RestaurantDB.Data.dll.config

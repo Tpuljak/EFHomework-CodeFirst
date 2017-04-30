@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Restaurant.DB.Models
 {
-    class KitchenModel
+    public class KitchenModel
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Price { get; set; }
     }
 }

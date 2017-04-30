@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace Restaurant.DB.Models
 {
-    class Employee
+    public enum Role
     {
+        LEAD_CHEF,
+        ASSISTANT_CHEF,
+        WAITER
+    }
+
+    public class Employee
+    {
+        public string Name { get; set; }
+        public string PersonalIdNumber { get; set; }
+        public int BirthYear { get; set; }
+        public Role Role { get; set; }
+
+        public int RestaurantId { get; set; }
     }
 }

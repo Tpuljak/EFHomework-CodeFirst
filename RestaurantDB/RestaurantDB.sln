@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantDB.Presenetation", "RestaurantDB.Presenetation\RestaurantDB.Presenetation.csproj", "{8F5DEDA2-E0C6-48ED-AD84-462BC4B81050}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantDB.Data", "Database\RestaurantDB.Data.csproj", "{259A470C-7768-4995-BC96-60AB15BBDB7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantDB.Domain", "RestaurantDB.Domain\RestaurantDB.Domain.csproj", "{EAD26013-ED75-47DD-9FC6-44161C93E624}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{8F5DEDA2-E0C6-48ED-AD84-462BC4B81050}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5DEDA2-E0C6-48ED-AD84-462BC4B81050}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5DEDA2-E0C6-48ED-AD84-462BC4B81050}.Release|Any CPU.Build.0 = Release|Any CPU
+		{259A470C-7768-4995-BC96-60AB15BBDB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{259A470C-7768-4995-BC96-60AB15BBDB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{259A470C-7768-4995-BC96-60AB15BBDB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{259A470C-7768-4995-BC96-60AB15BBDB7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD26013-ED75-47DD-9FC6-44161C93E624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD26013-ED75-47DD-9FC6-44161C93E624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD26013-ED75-47DD-9FC6-44161C93E624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD26013-ED75-47DD-9FC6-44161C93E624}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,13 @@
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\RestaurantDB.Domain.dll.config
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\RestaurantDB.Domain.dll
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\RestaurantDB.Domain.pdb
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\EntityFramework.dll
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\EntityFramework.SqlServer.dll
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\EntityFramework.xml
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\EntityFramework.SqlServer.xml
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\obj\Debug\RestaurantDB.Domain.csprojResolveAssemblyReference.cache
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\obj\Debug\RestaurantDB.Domain.dll
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\obj\Debug\RestaurantDB.Domain.pdb
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\RestaurantDB.Data.dll
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\RestaurantDB.Data.pdb
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Domain\bin\Debug\RestaurantDB.Data.dll.config

@@ -74,6 +74,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database\RestaurantDB.Data.csproj">
+      <Project>{259a470c-7768-4995-bc96-60ab15bbdb7d}</Project>
+      <Name>RestaurantDB.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantDB.Domain\RestaurantDB.Domain.csproj">
+      <Project>{ead26013-ed75-47dd-9fc6-44161c93e624}</Project>
+      <Name>RestaurantDB.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

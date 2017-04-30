@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Restaurant.DB;
 
 namespace RestaurantDB.Presenetation
 {
@@ -16,6 +14,8 @@ namespace RestaurantDB.Presenetation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            RestaurantContext context = new RestaurantContext();
+            
             Application.Run(new Form1());
         }
     }
