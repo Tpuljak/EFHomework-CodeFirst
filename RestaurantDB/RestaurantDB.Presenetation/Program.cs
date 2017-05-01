@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Restaurant.DB;
+using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace RestaurantDB.Presenetation
@@ -13,6 +15,8 @@ namespace RestaurantDB.Presenetation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            var a = new RestaurantContext();
+            var b = a.KitchenModels.ToList();
             Application.Run(new Form1());
         }
     }
