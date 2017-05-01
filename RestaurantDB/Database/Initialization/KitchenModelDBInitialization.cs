@@ -13,25 +13,25 @@ namespace Restaurant.DB.Initialization
                 new KitchenModel()
                 {
                     Name = "Italian",
-                    Price = "9999.99"
+                    Price = 9999.99
                 },
 
                 new KitchenModel()
                 {
                     Name = "German",
-                    Price = "100000.01"
+                    Price = 100000.01
                 },
 
                 new KitchenModel()
                 {
                     Name = "Chinese",
-                    Price = "8.00"
+                    Price = 8.00
                 },
 
                 new KitchenModel()
                 {
                     Name = "English",
-                    Price = "132952.12"
+                    Price = 132952.12
                 }
             };
 

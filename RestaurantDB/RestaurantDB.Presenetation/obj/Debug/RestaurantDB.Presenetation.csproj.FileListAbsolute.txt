@@ -17,3 +17,4 @@ X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetatio
 X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\RestaurantDB.Domain.dll.config
 X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\EntityFramework.SqlServer.dll
 X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\bin\Debug\EntityFramework.SqlServer.xml
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\RestaurantDB.Presenetation\obj\Debug\RestaurantDB.Presenetation.Form1.resources
