@@ -15,7 +15,7 @@ namespace RestaurantDB.Presenetation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             RestaurantContext context = new RestaurantContext();
-            
+            context.SaveChanges();
             Application.Run(new Form1());
         }
     }

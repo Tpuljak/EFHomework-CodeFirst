@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Initialization\KitchenModelDBInitialization.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Ingredient.cs" />
-    <Compile Include="Models\KitchenModel.cs" />
-    <Compile Include="Models\Recipe.cs" />
-    <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\Entities\Employee.cs" />
+    <Compile Include="Models\Entities\Ingredient.cs" />
+    <Compile Include="Models\Entities\KitchenModel.cs" />
+    <Compile Include="Models\Entities\Recipe.cs" />
+    <Compile Include="Models\Entities\Restaurant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantContext.cs" />
   </ItemGroup>

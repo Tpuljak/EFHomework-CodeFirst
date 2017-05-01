@@ -10,7 +10,7 @@ namespace Restaurant.DB.Initialization
 {
     public class KitchenModelDBInitialization : DropCreateDatabaseAlways<RestaurantContext>
     {
-        public override void InitializeDatabase(RestaurantContext context)
+        protected override void Seed(RestaurantContext context)
         {
             var kichenModels = new List<KitchenModel>()
             {
