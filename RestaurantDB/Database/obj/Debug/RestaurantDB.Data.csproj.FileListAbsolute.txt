@@ -7,3 +7,4 @@ X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\Database\bin\Debug\Restau
 X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\Database\bin\Debug\RestaurantDB.Data.pdb
 X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\Database\obj\Debug\RestaurantDB.Data.dll
 X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\Database\obj\Debug\RestaurantDB.Data.pdb
+X:\Domaci_radovi\Dev\EFHomework-CodeFirst\RestaurantDB\Database\obj\Debug\RestaurantDB.Data.csprojResolveAssemblyReference.cache

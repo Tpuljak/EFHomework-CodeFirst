@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Restaurant.DB;
 using System.Windows.Forms;
 
 namespace RestaurantDB.Presenetation
@@ -15,6 +8,9 @@ namespace RestaurantDB.Presenetation
         public Form1()
         {
             InitializeComponent();
+            _context = new RestaurantContext();
         }
+
+        private readonly RestaurantContext _context;
     }
 }

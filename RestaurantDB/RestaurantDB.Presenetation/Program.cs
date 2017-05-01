@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Restaurant.DB;
 
 namespace RestaurantDB.Presenetation
 {
@@ -14,8 +13,6 @@ namespace RestaurantDB.Presenetation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            RestaurantContext context = new RestaurantContext();
-            context.SaveChanges();
             Application.Run(new Form1());
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,14 @@ namespace Restaurant.DB.Models
     public class Employee
     {
         public string Name { get; set; }
+
+        [Key]
         public string PersonalIdNumber { get; set; }
+
         public int BirthYear { get; set; }
         public Role Role { get; set; }
 
         public int RestaurantId { get; set; }
+        public virtual Restaurant Restaurant { get; set; }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using Restaurant.DB.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Restaurant.DB.Initialization
 {
@@ -40,7 +36,7 @@ namespace Restaurant.DB.Initialization
             };
 
             context.KitchenModels.AddRange(kichenModels);
-            context.SaveChanges();
+            base.Seed(context);
         }
     }
 }
