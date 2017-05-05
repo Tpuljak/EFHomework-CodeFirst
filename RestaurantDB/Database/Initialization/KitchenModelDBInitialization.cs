@@ -32,6 +32,12 @@ namespace Restaurant.DB.Initialization
                 {
                     Name = "English",
                     Price = 132952.12
+                },
+
+                new KitchenModel()
+                {
+                    Name = "Croatian",
+                    Price = 1234.56
                 }
             };
 
