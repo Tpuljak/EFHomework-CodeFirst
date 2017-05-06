@@ -1,6 +1,9 @@
 ﻿using Restaurant.DB;
 using System;
 using System.Windows.Forms;
+using System.Configuration;
+
+using System.Linq;
 
 namespace RestaurantDB.Presenetation
 {
@@ -9,8 +12,8 @@ namespace RestaurantDB.Presenetation
         public MainForm()
         {
             InitializeComponent();
-            //_context = new RestaurantContext();
-        }
+           _context = new RestaurantContext(ConfigurationManager.AppSettings["DbConnectionString"]);
+		}
 
         private readonly RestaurantContext _context;
 
@@ -19,6 +22,8 @@ namespace RestaurantDB.Presenetation
             KitchenModelGrid.Visible = false;
             RestaurantsPanel.Visible = false;
             RecipePanel.Visible = false;
+			var restoutrans = _context.Restaurants.ToList();
+			MessageBox.Show(restoutrans.Count.ToString());
         }
 
         private void RecipesButton_Click(object sender, EventArgs e)
@@ -98,5 +103,10 @@ namespace RestaurantDB.Presenetation
         {
 
         }
-    }
+
+		private void RecipesGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
+	}
 }
