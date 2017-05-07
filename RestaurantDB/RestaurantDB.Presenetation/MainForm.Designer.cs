@@ -50,11 +50,11 @@
             this.AddButton2 = new System.Windows.Forms.Button();
             this.DeleteButton2 = new System.Windows.Forms.Button();
             this.RestaurantsPanel = new System.Windows.Forms.Panel();
-            this.EmployeeGrid = new System.Windows.Forms.DataGridView();
             this.ToolPanel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.EditButton3 = new System.Windows.Forms.Button();
+            this.AddButton3 = new System.Windows.Forms.Button();
+            this.DeleteButton3 = new System.Windows.Forms.Button();
+            this.EmployeeGrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.RestaurantsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KitchenModelGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipesGrid2)).BeginInit();
@@ -64,8 +64,8 @@
             this.RecipePanel.SuspendLayout();
             this.ToolPanel2.SuspendLayout();
             this.RestaurantsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrid)).BeginInit();
             this.ToolPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // RecipesButton
@@ -109,7 +109,7 @@
             this.RestaurantsGrid.ReadOnly = true;
             this.RestaurantsGrid.Size = new System.Drawing.Size(230, 300);
             this.RestaurantsGrid.TabIndex = 7;
-            this.RestaurantsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RestaurantGrid_CellClick);
+            this.RestaurantsGrid.SelectionChanged += new System.EventHandler(this.RestaurantGrid_SelectionChanged);
             // 
             // EmployeesCheckBox
             // 
@@ -191,6 +191,7 @@
             this.RecipesGrid.Size = new System.Drawing.Size(230, 300);
             this.RecipesGrid.TabIndex = 18;
             this.RecipesGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecipesGrid_CellClick);
+            this.RecipesGrid.SelectionChanged += new System.EventHandler(this.RecipeGrid_SelectionChanged);
             // 
             // IngredientsGrid
             // 
@@ -218,7 +219,7 @@
             // EditButton
             // 
             this.EditButton.Enabled = false;
-            this.EditButton.Location = new System.Drawing.Point(84, 4);
+            this.EditButton.Location = new System.Drawing.Point(81, 4);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(75, 46);
             this.EditButton.TabIndex = 21;
@@ -239,7 +240,7 @@
             // DeleteButton
             // 
             this.DeleteButton.Enabled = false;
-            this.DeleteButton.Location = new System.Drawing.Point(165, 4);
+            this.DeleteButton.Location = new System.Drawing.Point(162, 4);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 46);
             this.DeleteButton.TabIndex = 22;
@@ -315,6 +316,49 @@
             this.RestaurantsPanel.Size = new System.Drawing.Size(720, 300);
             this.RestaurantsPanel.TabIndex = 24;
             // 
+            // ToolPanel3
+            // 
+            this.ToolPanel3.Controls.Add(this.EditButton3);
+            this.ToolPanel3.Controls.Add(this.AddButton3);
+            this.ToolPanel3.Controls.Add(this.DeleteButton3);
+            this.ToolPanel3.Location = new System.Drawing.Point(482, 244);
+            this.ToolPanel3.Name = "ToolPanel3";
+            this.ToolPanel3.Size = new System.Drawing.Size(238, 50);
+            this.ToolPanel3.TabIndex = 26;
+            this.ToolPanel3.Visible = false;
+            // 
+            // EditButton3
+            // 
+            this.EditButton3.Enabled = false;
+            this.EditButton3.Location = new System.Drawing.Point(81, 4);
+            this.EditButton3.Name = "EditButton3";
+            this.EditButton3.Size = new System.Drawing.Size(75, 46);
+            this.EditButton3.TabIndex = 21;
+            this.EditButton3.Text = "Edit";
+            this.EditButton3.UseVisualStyleBackColor = true;
+            this.EditButton3.Click += new System.EventHandler(this.EditEmployeeButton_Click);
+            // 
+            // AddButton3
+            // 
+            this.AddButton3.Location = new System.Drawing.Point(0, 4);
+            this.AddButton3.Name = "AddButton3";
+            this.AddButton3.Size = new System.Drawing.Size(75, 46);
+            this.AddButton3.TabIndex = 20;
+            this.AddButton3.Text = "Add";
+            this.AddButton3.UseVisualStyleBackColor = true;
+            this.AddButton3.Click += new System.EventHandler(this.AddEmployeeButton_Click);
+            // 
+            // DeleteButton3
+            // 
+            this.DeleteButton3.Enabled = false;
+            this.DeleteButton3.Location = new System.Drawing.Point(160, 4);
+            this.DeleteButton3.Name = "DeleteButton3";
+            this.DeleteButton3.Size = new System.Drawing.Size(75, 46);
+            this.DeleteButton3.TabIndex = 22;
+            this.DeleteButton3.Text = "Delete";
+            this.DeleteButton3.UseVisualStyleBackColor = true;
+            this.DeleteButton3.Click += new System.EventHandler(this.DeleteEmployeeButton_Click);
+            // 
             // EmployeeGrid
             // 
             this.EmployeeGrid.AllowUserToAddRows = false;
@@ -328,47 +372,7 @@
             this.EmployeeGrid.Size = new System.Drawing.Size(237, 238);
             this.EmployeeGrid.TabIndex = 25;
             this.EmployeeGrid.Visible = false;
-            // 
-            // ToolPanel3
-            // 
-            this.ToolPanel3.Controls.Add(this.button1);
-            this.ToolPanel3.Controls.Add(this.button2);
-            this.ToolPanel3.Controls.Add(this.button3);
-            this.ToolPanel3.Location = new System.Drawing.Point(485, 244);
-            this.ToolPanel3.Name = "ToolPanel3";
-            this.ToolPanel3.Size = new System.Drawing.Size(235, 50);
-            this.ToolPanel3.TabIndex = 26;
-            this.ToolPanel3.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(84, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 46);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(0, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 46);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.AddEmployeeButton_Click);
-            // 
-            // button3
-            // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(165, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 46);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.EmployeeGrid.SelectionChanged += new System.EventHandler(this.EmployeeGrid_SelectionChanged);
             // 
             // MainForm
             // 
@@ -394,8 +398,8 @@
             this.ToolPanel2.ResumeLayout(false);
             this.RestaurantsPanel.ResumeLayout(false);
             this.RestaurantsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrid)).EndInit();
             this.ToolPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,9 +429,9 @@
         private System.Windows.Forms.Button DeleteButton2;
         private System.Windows.Forms.DataGridView EmployeeGrid;
         private System.Windows.Forms.Panel ToolPanel3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button EditButton3;
+        private System.Windows.Forms.Button AddButton3;
+        private System.Windows.Forms.Button DeleteButton3;
     }
 }
 

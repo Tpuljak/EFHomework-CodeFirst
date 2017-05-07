@@ -1,9 +1,9 @@
 ﻿using Restaurant.DB;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Configuration;
-
 using System.Linq;
+using System.Collections;
 using Restaurant.DB.Models;
 
 namespace RestaurantDB.Presenetation
@@ -14,9 +14,13 @@ namespace RestaurantDB.Presenetation
         {
             InitializeComponent();
             _context = context;
+            selectedRestaurantNames = new List<string>();
         }
 
         private readonly RestaurantContext _context;
+        private List<string> selectedRestaurantNames;
+        private List<string> selectedEmployeeNames;
+        private List<string> selectedRecipeNames;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -89,7 +93,14 @@ namespace RestaurantDB.Presenetation
 
         private void DeleteRecipeButton_Click(object sender, EventArgs e)
         {
+            List<Recipe> recipes = new List<Recipe>();
+            foreach (var name in selectedRecipeNames)
+            {
+                recipes.Add(_context.Recepies.FirstOrDefault(x => x.Name == name));
+            }
 
+            _context.Recepies.RemoveRange(recipes);
+            _context.SaveChanges();
         }
 
         private void EditRestaurantButton_Click(object sender, EventArgs e)
@@ -106,15 +117,14 @@ namespace RestaurantDB.Presenetation
 
         private void DeleteRestaurantButton_Click(object sender, EventArgs e)
         {
+            List<Restaurant.DB.Models.Restaurant> restaurants = new List<Restaurant.DB.Models.Restaurant>();
+            foreach (var name in selectedRestaurantNames)
+            {
+                restaurants.Add(_context.Restaurants.FirstOrDefault(x => x.Name == name));
+            }
 
-        }
-
-        private void RestaurantGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DeleteButton.Enabled = true;
-            EditButton.Enabled = true;
-            RecipesCheckBox.Enabled = true;
-            EmployeesCheckBox.Enabled = true;
+            _context.Restaurants.RemoveRange(restaurants);
+            _context.SaveChanges();
         }
 
         private void RecipesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -127,6 +137,68 @@ namespace RestaurantDB.Presenetation
         {
             EmployeeCreation newEmployeeCreation = new EmployeeCreation();
             newEmployeeCreation.ShowDialog();
+        }
+
+        private void EditEmployeeButton_Click(object sender, EventArgs e)
+        {
+            EmployeeEdit newEmployeeEdit = new EmployeeEdit();
+            newEmployeeEdit.ShowDialog();
+        }
+
+        private void RestaurantGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            EditButton.Enabled = true;
+            RecipesCheckBox.Enabled = true;
+            EmployeesCheckBox.Enabled = true;
+            DeleteButton.Enabled = true;
+            List<string> restaurantNames = new List<string>();
+
+            foreach (DataGridViewRow row in RestaurantsGrid.SelectedRows)
+            {
+                restaurantNames.Add(row.Cells["Name"].Value.ToString());
+            }
+
+            selectedRestaurantNames = restaurantNames;
+        }
+
+        private void DeleteEmployeeButton_Click(object sender, EventArgs e)
+        {
+            List<Employee> employees = new List<Employee>();
+            foreach (var name in selectedEmployeeNames)
+            {
+                employees.Add(_context.Employees.FirstOrDefault(x => x.Name == name));
+            }
+
+            _context.Employees.RemoveRange(employees);
+            _context.SaveChanges();
+        }
+
+        private void RecipeGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            EditButton2.Enabled = true;
+            DeleteButton2.Enabled = true;
+            List<string> recipeNames = new List<string>();
+
+            foreach (DataGridViewRow row in RecipesGrid.SelectedRows)
+            {
+                recipeNames.Add(row.Cells["Name"].Value.ToString());
+            }
+
+            selectedRecipeNames = recipeNames;
+        }
+
+        private void EmployeeGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            EditButton3.Enabled = true;
+            DeleteButton3.Enabled = true;
+            List<string> employeeNames = new List<string>();
+
+            foreach (DataGridViewRow row in EmployeeGrid.SelectedRows)
+            {
+                employeeNames.Add(row.Cells["Name"].Value.ToString());
+            }
+
+            selectedEmployeeNames = employeeNames;
         }
     }
 }
