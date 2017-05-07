@@ -51,6 +51,10 @@
             this.DeleteButton2 = new System.Windows.Forms.Button();
             this.RestaurantsPanel = new System.Windows.Forms.Panel();
             this.EmployeeGrid = new System.Windows.Forms.DataGridView();
+            this.ToolPanel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.RestaurantsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KitchenModelGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipesGrid2)).BeginInit();
@@ -61,6 +65,7 @@
             this.ToolPanel2.SuspendLayout();
             this.RestaurantsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrid)).BeginInit();
+            this.ToolPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // RecipesButton
@@ -104,10 +109,12 @@
             this.RestaurantsGrid.ReadOnly = true;
             this.RestaurantsGrid.Size = new System.Drawing.Size(230, 300);
             this.RestaurantsGrid.TabIndex = 7;
+            this.RestaurantsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RestaurantGrid_CellClick);
             // 
             // EmployeesCheckBox
             // 
             this.EmployeesCheckBox.AutoSize = true;
+            this.EmployeesCheckBox.Enabled = false;
             this.EmployeesCheckBox.Location = new System.Drawing.Point(368, 99);
             this.EmployeesCheckBox.Name = "EmployeesCheckBox";
             this.EmployeesCheckBox.Size = new System.Drawing.Size(77, 17);
@@ -132,6 +139,7 @@
             // RecipesCheckBox
             // 
             this.RecipesCheckBox.AutoSize = true;
+            this.RecipesCheckBox.Enabled = false;
             this.RecipesCheckBox.Location = new System.Drawing.Point(262, 99);
             this.RecipesCheckBox.Name = "RecipesCheckBox";
             this.RecipesCheckBox.Size = new System.Drawing.Size(65, 17);
@@ -148,12 +156,12 @@
             this.KitchenModelLabel.Size = new System.Drawing.Size(78, 13);
             this.KitchenModelLabel.TabIndex = 15;
             this.KitchenModelLabel.Text = "Kitchen Model:";
-            this.KitchenModelLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // KitchenModelText
             // 
             this.KitchenModelText.Location = new System.Drawing.Point(317, 60);
             this.KitchenModelText.Name = "KitchenModelText";
+            this.KitchenModelText.ReadOnly = true;
             this.KitchenModelText.Size = new System.Drawing.Size(159, 20);
             this.KitchenModelText.TabIndex = 16;
             // 
@@ -182,7 +190,7 @@
             this.RecipesGrid.ReadOnly = true;
             this.RecipesGrid.Size = new System.Drawing.Size(230, 300);
             this.RecipesGrid.TabIndex = 18;
-            this.RecipesGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecipesGrid_CellContentClick);
+            this.RecipesGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecipesGrid_CellClick);
             // 
             // IngredientsGrid
             // 
@@ -206,17 +214,17 @@
             this.ToolPanel1.Name = "ToolPanel1";
             this.ToolPanel1.Size = new System.Drawing.Size(240, 50);
             this.ToolPanel1.TabIndex = 24;
-            this.ToolPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.ToolPanel1_Paint);
             // 
             // EditButton
             // 
+            this.EditButton.Enabled = false;
             this.EditButton.Location = new System.Drawing.Point(84, 4);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(75, 46);
             this.EditButton.TabIndex = 21;
             this.EditButton.Text = "Edit";
             this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.button4_Click);
+            this.EditButton.Click += new System.EventHandler(this.EditRestaurantButton_Click);
             // 
             // AddButton
             // 
@@ -226,16 +234,18 @@
             this.AddButton.TabIndex = 20;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddRestarurantButton_Click);
             // 
             // DeleteButton
             // 
+            this.DeleteButton.Enabled = false;
             this.DeleteButton.Location = new System.Drawing.Point(165, 4);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 46);
             this.DeleteButton.TabIndex = 22;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.AddRecipeButton_Click);
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteRestaurantButton_Click);
             // 
             // RecipePanel
             // 
@@ -259,12 +269,14 @@
             // 
             // EditButton2
             // 
+            this.EditButton2.Enabled = false;
             this.EditButton2.Location = new System.Drawing.Point(84, 4);
             this.EditButton2.Name = "EditButton2";
             this.EditButton2.Size = new System.Drawing.Size(75, 46);
             this.EditButton2.TabIndex = 21;
             this.EditButton2.Text = "Edit";
             this.EditButton2.UseVisualStyleBackColor = true;
+            this.EditButton2.Click += new System.EventHandler(this.EditRecipeButton_Click);
             // 
             // AddButton2
             // 
@@ -278,15 +290,18 @@
             // 
             // DeleteButton2
             // 
+            this.DeleteButton2.Enabled = false;
             this.DeleteButton2.Location = new System.Drawing.Point(165, 4);
             this.DeleteButton2.Name = "DeleteButton2";
             this.DeleteButton2.Size = new System.Drawing.Size(75, 46);
             this.DeleteButton2.TabIndex = 22;
             this.DeleteButton2.Text = "Delete";
             this.DeleteButton2.UseVisualStyleBackColor = true;
+            this.DeleteButton2.Click += new System.EventHandler(this.DeleteRecipeButton_Click);
             // 
             // RestaurantsPanel
             // 
+            this.RestaurantsPanel.Controls.Add(this.ToolPanel3);
             this.RestaurantsPanel.Controls.Add(this.EmployeeGrid);
             this.RestaurantsPanel.Controls.Add(this.RecipesGrid2);
             this.RestaurantsPanel.Controls.Add(this.KitchenModelText);
@@ -299,7 +314,6 @@
             this.RestaurantsPanel.Name = "RestaurantsPanel";
             this.RestaurantsPanel.Size = new System.Drawing.Size(720, 300);
             this.RestaurantsPanel.TabIndex = 24;
-            this.RestaurantsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // EmployeeGrid
             // 
@@ -311,17 +325,58 @@
             this.EmployeeGrid.Location = new System.Drawing.Point(482, 0);
             this.EmployeeGrid.Name = "EmployeeGrid";
             this.EmployeeGrid.ReadOnly = true;
-            this.EmployeeGrid.Size = new System.Drawing.Size(237, 300);
+            this.EmployeeGrid.Size = new System.Drawing.Size(237, 238);
             this.EmployeeGrid.TabIndex = 25;
             this.EmployeeGrid.Visible = false;
+            // 
+            // ToolPanel3
+            // 
+            this.ToolPanel3.Controls.Add(this.button1);
+            this.ToolPanel3.Controls.Add(this.button2);
+            this.ToolPanel3.Controls.Add(this.button3);
+            this.ToolPanel3.Location = new System.Drawing.Point(485, 244);
+            this.ToolPanel3.Name = "ToolPanel3";
+            this.ToolPanel3.Size = new System.Drawing.Size(235, 50);
+            this.ToolPanel3.TabIndex = 26;
+            this.ToolPanel3.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(84, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 46);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Edit";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 46);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.AddEmployeeButton_Click);
+            // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.Location = new System.Drawing.Point(165, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 46);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "Delete";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 372);
-            this.Controls.Add(this.RecipePanel);
             this.Controls.Add(this.RestaurantsPanel);
+            this.Controls.Add(this.RecipePanel);
             this.Controls.Add(this.KitchenModelGrid);
             this.Controls.Add(this.RestaurantsButton);
             this.Controls.Add(this.KitchenModelsButton);
@@ -340,6 +395,7 @@
             this.RestaurantsPanel.ResumeLayout(false);
             this.RestaurantsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrid)).EndInit();
+            this.ToolPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -368,6 +424,10 @@
         private System.Windows.Forms.Button AddButton2;
         private System.Windows.Forms.Button DeleteButton2;
         private System.Windows.Forms.DataGridView EmployeeGrid;
+        private System.Windows.Forms.Panel ToolPanel3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

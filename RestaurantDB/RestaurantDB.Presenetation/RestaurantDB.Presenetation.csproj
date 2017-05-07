@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeCreation.Designer.cs">
+      <DependentUpon>EmployeeCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,18 @@
     <Compile Include="RecipeCreation.Designer.cs">
       <DependentUpon>RecipeCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecipeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeEdit.Designer.cs">
+      <DependentUpon>RecipeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestaurantCreation.Designer.cs">
+      <DependentUpon>RestaurantCreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -77,6 +95,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantDBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RestaurantEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestaurantEdit.Designer.cs">
+      <DependentUpon>RestaurantEdit.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EmployeeCreation.resx">
+      <DependentUpon>EmployeeCreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +119,15 @@
     </Compile>
     <EmbeddedResource Include="RecipeCreation.resx">
       <DependentUpon>RecipeCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeEdit.resx">
+      <DependentUpon>RecipeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurantCreation.resx">
+      <DependentUpon>RestaurantCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurantEdit.resx">
+      <DependentUpon>RestaurantEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

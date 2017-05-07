@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Restaurant.DB;
+using System;
 using System.Windows.Forms;
 
 namespace RestaurantDB.Presenetation
 {
     public partial class RecipeCreation : Form
     {
-        public RecipeCreation()
+        public RecipeCreation(RestaurantContext context)
         {
             InitializeComponent();
+            _context = context;
         }
+
+        private readonly RestaurantContext _context;
 
         private void CancelButton_Click(object sender, EventArgs e)
         {

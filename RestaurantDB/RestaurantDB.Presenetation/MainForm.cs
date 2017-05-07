@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Configuration;
 
 using System.Linq;
+using Restaurant.DB.Models;
 
 namespace RestaurantDB.Presenetation
 {
@@ -51,8 +52,16 @@ namespace RestaurantDB.Presenetation
 
         private void EmployeesCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (EmployeesCheckBox.Checked) EmployeeGrid.Visible = true;
-            else EmployeeGrid.Visible = false;
+            if (EmployeesCheckBox.Checked)
+            {
+                EmployeeGrid.Visible = true;
+                ToolPanel3.Visible = true;
+            }
+            else
+            {
+                EmployeeGrid.Visible = false;
+                ToolPanel3.Visible = false;
+            }
         }
 
         private void RecipesCheckBox_CheckedChange(object sender, EventArgs e)
@@ -61,30 +70,10 @@ namespace RestaurantDB.Presenetation
             else RecipesGrid2.Visible = false;
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToolPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void AddRecipeButton_Click(object sender, EventArgs e)
         {
-            RecipeCreation newRecipeCreation = new RecipeCreation();
+            RecipeCreation newRecipeCreation = new RecipeCreation(_context);
             newRecipeCreation.ShowDialog();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void recipesBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -92,19 +81,52 @@ namespace RestaurantDB.Presenetation
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void EditRecipeButton_Click(object sender, EventArgs e)
+        {
+            RecipeEdit newRecipeEdit = new RecipeEdit(_context);
+            newRecipeEdit.ShowDialog();
+        }
+
+        private void DeleteRecipeButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void RestaurantsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void EditRestaurantButton_Click(object sender, EventArgs e)
+        {
+            RestaurantEdit newRestaurantEdit = new RestaurantEdit(_context);
+            newRestaurantEdit.ShowDialog();
+        }
+
+        private void AddRestarurantButton_Click(object sender, EventArgs e)
+        {
+            RestaurantCreation newRestaurantCreation = new RestaurantCreation(_context);
+            newRestaurantCreation.ShowDialog();
+        }
+
+        private void DeleteRestaurantButton_Click(object sender, EventArgs e)
         {
 
         }
 
-		private void RecipesGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
+        private void RestaurantGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DeleteButton.Enabled = true;
+            EditButton.Enabled = true;
+            RecipesCheckBox.Enabled = true;
+            EmployeesCheckBox.Enabled = true;
+        }
 
-		}
-	}
+        private void RecipesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DeleteButton2.Enabled = true;
+            EditButton2.Enabled = true;
+        }
+
+        private void AddEmployeeButton_Click(object sender, EventArgs e)
+        {
+            EmployeeCreation newEmployeeCreation = new EmployeeCreation();
+            newEmployeeCreation.ShowDialog();
+        }
+    }
 }
