@@ -6,7 +6,7 @@ namespace Restaurant.DB
 {
     public class RestaurantContext : DbContext
     {
-        public RestaurantContext(string connString) : base(connString) 
+        public RestaurantContext() : base() 
         {
             Database.SetInitializer(new KitchenModelDBInitialization());
         }

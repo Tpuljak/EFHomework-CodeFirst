@@ -9,11 +9,11 @@ namespace RestaurantDB.Presenetation
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(RestaurantContext context)
         {
             InitializeComponent();
-           _context = new RestaurantContext(ConfigurationManager.AppSettings["DbConnectionString"]);
-		}
+            _context = context;
+        }
 
         private readonly RestaurantContext _context;
 
@@ -22,8 +22,6 @@ namespace RestaurantDB.Presenetation
             KitchenModelGrid.Visible = false;
             RestaurantsPanel.Visible = false;
             RecipePanel.Visible = false;
-			var restoutrans = _context.Restaurants.ToList();
-			MessageBox.Show(restoutrans.Count.ToString());
         }
 
         private void RecipesButton_Click(object sender, EventArgs e)

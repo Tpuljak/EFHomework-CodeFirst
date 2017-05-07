@@ -1,5 +1,6 @@
 ﻿using Restaurant.DB;
 using System;
+using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -15,7 +16,9 @@ namespace RestaurantDB.Presenetation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            RestaurantContext _context = new RestaurantContext();
+
+            Application.Run(new MainForm(_context));
         }
     }
 }
