@@ -80,11 +80,6 @@ namespace RestaurantDB.Presenetation
             newRecipeCreation.ShowDialog();
         }
 
-        private void recipesBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void EditRecipeButton_Click(object sender, EventArgs e)
         {
             RecipeEdit newRecipeEdit = new RecipeEdit(_context);
