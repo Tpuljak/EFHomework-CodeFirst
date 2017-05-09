@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantDB.Presenetation", "RestaurantDB.Presenetation\RestaurantDB.Presenetation.csproj", "{8F5DEDA2-E0C6-48ED-AD84-462BC4B81050}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantDB.Data", "RestaurantDB.Data\RestaurantDB.Data.csproj", "{5861E010-3B71-4421-9059-F4F908FC71FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantDB.Data", "Database\RestaurantDB.Data.csproj", "{259A470C-7768-4995-BC96-60AB15BBDB7D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantDB.Domain", "RestaurantDB.Domain\RestaurantDB.Domain.csproj", "{617BD61C-F48C-408F-AB65-FB3B196B5E36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantDB.Domain", "RestaurantDB.Domain\RestaurantDB.Domain.csproj", "{EAD26013-ED75-47DD-9FC6-44161C93E624}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantDB.Presetation", "RestaurantDB.Presetation\RestaurantDB.Presetation.csproj", "{4F43FCED-1F5E-4AD1-9B64-CCD5CB2C8395}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8F5DEDA2-E0C6-48ED-AD84-462BC4B81050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F5DEDA2-E0C6-48ED-AD84-462BC4B81050}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F5DEDA2-E0C6-48ED-AD84-462BC4B81050}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F5DEDA2-E0C6-48ED-AD84-462BC4B81050}.Release|Any CPU.Build.0 = Release|Any CPU
-		{259A470C-7768-4995-BC96-60AB15BBDB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{259A470C-7768-4995-BC96-60AB15BBDB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{259A470C-7768-4995-BC96-60AB15BBDB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{259A470C-7768-4995-BC96-60AB15BBDB7D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAD26013-ED75-47DD-9FC6-44161C93E624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAD26013-ED75-47DD-9FC6-44161C93E624}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAD26013-ED75-47DD-9FC6-44161C93E624}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAD26013-ED75-47DD-9FC6-44161C93E624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5861E010-3B71-4421-9059-F4F908FC71FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5861E010-3B71-4421-9059-F4F908FC71FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5861E010-3B71-4421-9059-F4F908FC71FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5861E010-3B71-4421-9059-F4F908FC71FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617BD61C-F48C-408F-AB65-FB3B196B5E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617BD61C-F48C-408F-AB65-FB3B196B5E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617BD61C-F48C-408F-AB65-FB3B196B5E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617BD61C-F48C-408F-AB65-FB3B196B5E36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F43FCED-1F5E-4AD1-9B64-CCD5CB2C8395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F43FCED-1F5E-4AD1-9B64-CCD5CB2C8395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F43FCED-1F5E-4AD1-9B64-CCD5CB2C8395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F43FCED-1F5E-4AD1-9B64-CCD5CB2C8395}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
