@@ -1,10 +1,7 @@
 ﻿using RestaurantDB.Data;
 using RestaurantDB.Data.Models;
-using RestaurantDB.Presetation;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -18,6 +15,8 @@ namespace RestaurantDB.Presentation
             _context = context;
             _recipe = new Recipe();
             _ingredients = new List<Ingredient>();
+            _ingredients = _context.Ingredients.ToList();
+            IngredientsListBox.DataSource = _ingredients;
         }
 
         private readonly RestaurantContext _context;
@@ -56,15 +55,12 @@ namespace RestaurantDB.Presentation
             _ingredients.Remove(selectedIngredient);
 
             if (_ingredients.Count() == 0) AddIngredientButton.Enabled = false;
+
             IngredientsListBox.DataSource = _ingredients.ToList();
-            IngredientsListBox.DisplayMember = "Name";
         }
 
         private void RecipeCreation_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'restaurantDbDataSet.Ingredients' table. You can move, or remove it, as needed.
-            this.ingredientsTableAdapter.Fill(this.restaurantDbDataSet.Ingredients);
-
         }
     }
 }

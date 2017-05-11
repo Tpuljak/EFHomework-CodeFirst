@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.EmployeeNameInput = new System.Windows.Forms.TextBox();
+            this.NameInput = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.EmployeeEditTitle = new System.Windows.Forms.Label();
             this.EditButton = new System.Windows.Forms.Button();
@@ -39,20 +39,20 @@
             this.RoleSelection = new System.Windows.Forms.ComboBox();
             this.RoleLabel = new System.Windows.Forms.Label();
             this.RestaurantListBox = new System.Windows.Forms.ListBox();
-            this.RestaurantLabel = new System.Windows.Forms.Label();
-            this.restaurantDbDataSet = new RestaurantDB.Presetation.RestaurantDbDataSet();
             this.restaurantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.restaurantDbDataSet = new RestaurantDB.Presetation.RestaurantDbDataSet();
+            this.RestaurantLabel = new System.Windows.Forms.Label();
             this.restaurantsTableAdapter = new RestaurantDB.Presetation.RestaurantDbDataSetTableAdapters.RestaurantsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // EmployeeNameInput
+            // NameInput
             // 
-            this.EmployeeNameInput.Location = new System.Drawing.Point(210, 51);
-            this.EmployeeNameInput.Name = "EmployeeNameInput";
-            this.EmployeeNameInput.Size = new System.Drawing.Size(100, 20);
-            this.EmployeeNameInput.TabIndex = 16;
+            this.NameInput.Location = new System.Drawing.Point(210, 51);
+            this.NameInput.Name = "NameInput";
+            this.NameInput.Size = new System.Drawing.Size(100, 20);
+            this.NameInput.TabIndex = 16;
             // 
             // NameLabel
             // 
@@ -142,6 +142,16 @@
             this.RestaurantListBox.TabIndex = 26;
             this.RestaurantListBox.ValueMember = "Name";
             // 
+            // restaurantsBindingSource
+            // 
+            this.restaurantsBindingSource.DataMember = "Restaurants";
+            this.restaurantsBindingSource.DataSource = this.restaurantDbDataSet;
+            // 
+            // restaurantDbDataSet
+            // 
+            this.restaurantDbDataSet.DataSetName = "RestaurantDbDataSet";
+            this.restaurantDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // RestaurantLabel
             // 
             this.RestaurantLabel.AutoSize = true;
@@ -150,16 +160,6 @@
             this.RestaurantLabel.Size = new System.Drawing.Size(53, 13);
             this.RestaurantLabel.TabIndex = 25;
             this.RestaurantLabel.Text = "Works at:";
-            // 
-            // restaurantDbDataSet
-            // 
-            this.restaurantDbDataSet.DataSetName = "RestaurantDbDataSet";
-            this.restaurantDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // restaurantsBindingSource
-            // 
-            this.restaurantsBindingSource.DataMember = "Restaurants";
-            this.restaurantsBindingSource.DataSource = this.restaurantDbDataSet;
             // 
             // restaurantsTableAdapter
             // 
@@ -178,14 +178,14 @@
             this.Controls.Add(this.RoleLabel);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.EmployeeNameInput);
+            this.Controls.Add(this.NameInput);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.EmployeeEditTitle);
             this.Name = "EmployeeEdit";
             this.Text = "EmployeeEdit";
             this.Load += new System.EventHandler(this.EmployeeEdit_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,7 +193,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox EmployeeNameInput;
+        private System.Windows.Forms.TextBox NameInput;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label EmployeeEditTitle;
         private System.Windows.Forms.Button EditButton;

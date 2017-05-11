@@ -2,12 +2,7 @@
 using RestaurantDB.Data.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestaurantDB.Presentation
@@ -19,9 +14,19 @@ namespace RestaurantDB.Presentation
             InitializeComponent();
             _context = context;
             _recipe = _context.Recepies.Find(recipe.Id);
+
+            foreach (var ingredient in _context.Ingredients)
+            {
+                if(ingredient.Recipes.Contains(_recipe))
+                {
+                    ingredient.Recipes.Remove(_recipe);
+                }
+            }
+
             _recipe.Ingredients.Clear();
             _ingredients = new List<Ingredient>();
             _ingredients = _context.Ingredients.ToList();
+            IngredientsListBox.DataSource = _ingredients;
         }
 
         private readonly RestaurantContext _context;
@@ -30,9 +35,9 @@ namespace RestaurantDB.Presentation
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (RecipeNameInput.Text != null && TimeToMakeInput.Text != null)
+            if (NameInput.Text != null && TimeToMakeInput.Text != null)
             {
-                _recipe.Name = RecipeNameInput.Text;
+                _recipe.Name = NameInput.Text;
                 _recipe.TimeToMake = TimeToMakeInput.Text;
             }
             else
@@ -54,8 +59,9 @@ namespace RestaurantDB.Presentation
 
         private void RecipeEdit_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'restaurantDbDataSet.Ingredients' table. You can move, or remove it, as needed.
-            this.ingredientsTableAdapter.Fill(this.restaurantDbDataSet.Ingredients);
+            NameInput.Text = _recipe.Name;
+            TimeToMakeInput.Text = _recipe.TimeToMake;
+            
         }
 
         private void AddIngredientButton_Click(object sender, EventArgs e)
@@ -66,8 +72,10 @@ namespace RestaurantDB.Presentation
             _ingredients.Remove(selectedIngredient);
 
             if (_ingredients.Count() == 0) AddIngredientButton.Enabled = false;
-            IngredientsListBox.DataSource = _ingredients.ToList();
+
             IngredientsListBox.DisplayMember = "Name";
+            IngredientsListBox.DataSource = _ingredients.ToList();
+            
         }
     }
 }

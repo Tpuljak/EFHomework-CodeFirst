@@ -34,16 +34,16 @@
             this.EditButton = new System.Windows.Forms.Button();
             this.IngredientsLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
-            this.RecipeNameInput = new System.Windows.Forms.TextBox();
+            this.NameInput = new System.Windows.Forms.TextBox();
             this.TimeToMakeInput = new System.Windows.Forms.TextBox();
             this.TimeToMakeLabel = new System.Windows.Forms.Label();
             this.AddIngredientButton = new System.Windows.Forms.Button();
             this.IngredientsListBox = new System.Windows.Forms.ListBox();
-            this.restaurantDbDataSet = new RestaurantDB.Presetation.RestaurantDbDataSet();
             this.ingredientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.restaurantDbDataSet = new RestaurantDB.Presetation.RestaurantDbDataSet();
             this.ingredientsTableAdapter = new RestaurantDB.Presetation.RestaurantDbDataSetTableAdapters.IngredientsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ingredientsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // RecipeEditTitle
@@ -94,12 +94,12 @@
             this.NameLabel.TabIndex = 12;
             this.NameLabel.Text = "New name:";
             // 
-            // RecipeNameInput
+            // NameInput
             // 
-            this.RecipeNameInput.Location = new System.Drawing.Point(179, 51);
-            this.RecipeNameInput.Name = "RecipeNameInput";
-            this.RecipeNameInput.Size = new System.Drawing.Size(100, 20);
-            this.RecipeNameInput.TabIndex = 13;
+            this.NameInput.Location = new System.Drawing.Point(179, 51);
+            this.NameInput.Name = "NameInput";
+            this.NameInput.Size = new System.Drawing.Size(100, 20);
+            this.NameInput.TabIndex = 13;
             // 
             // TimeToMakeInput
             // 
@@ -113,9 +113,9 @@
             this.TimeToMakeLabel.AutoSize = true;
             this.TimeToMakeLabel.Location = new System.Drawing.Point(17, 98);
             this.TimeToMakeLabel.Name = "TimeToMakeLabel";
-            this.TimeToMakeLabel.Size = new System.Drawing.Size(123, 13);
+            this.TimeToMakeLabel.Size = new System.Drawing.Size(119, 13);
             this.TimeToMakeLabel.TabIndex = 15;
-            this.TimeToMakeLabel.Text = "Time to make (seconds):";
+            this.TimeToMakeLabel.Text = "Time to make (minutes):";
             // 
             // AddIngredientButton
             // 
@@ -139,15 +139,15 @@
             this.IngredientsListBox.TabIndex = 20;
             this.IngredientsListBox.ValueMember = "Name";
             // 
-            // restaurantDbDataSet
-            // 
-            this.restaurantDbDataSet.DataSetName = "RestaurantDbDataSet";
-            this.restaurantDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // ingredientsBindingSource
             // 
             this.ingredientsBindingSource.DataMember = "Ingredients";
             this.ingredientsBindingSource.DataSource = this.restaurantDbDataSet;
+            // 
+            // restaurantDbDataSet
+            // 
+            this.restaurantDbDataSet.DataSetName = "RestaurantDbDataSet";
+            this.restaurantDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ingredientsTableAdapter
             // 
@@ -162,7 +162,7 @@
             this.Controls.Add(this.IngredientsListBox);
             this.Controls.Add(this.TimeToMakeLabel);
             this.Controls.Add(this.TimeToMakeInput);
-            this.Controls.Add(this.RecipeNameInput);
+            this.Controls.Add(this.NameInput);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.IngredientsLabel);
             this.Controls.Add(this.EditButton);
@@ -171,8 +171,8 @@
             this.Name = "RecipeEdit";
             this.Text = "RecipeEdit";
             this.Load += new System.EventHandler(this.RecipeEdit_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ingredientsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,7 +185,7 @@
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Label IngredientsLabel;
         private System.Windows.Forms.Label NameLabel;
-        private System.Windows.Forms.TextBox RecipeNameInput;
+        private System.Windows.Forms.TextBox NameInput;
         private System.Windows.Forms.TextBox TimeToMakeInput;
         private System.Windows.Forms.Label TimeToMakeLabel;
         private System.Windows.Forms.Button AddIngredientButton;

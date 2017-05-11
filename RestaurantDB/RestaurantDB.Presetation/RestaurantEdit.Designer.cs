@@ -28,17 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.RestaurantEditTitle = new System.Windows.Forms.Label();
             this.EditButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.KitchenModelLabel = new System.Windows.Forms.Label();
             this.KitchenModelComboBox = new System.Windows.Forms.ComboBox();
-            this.EmployeesLabel = new System.Windows.Forms.Label();
             this.RecipesLabel = new System.Windows.Forms.Label();
-            this.RecipesComboBox = new System.Windows.Forms.ComboBox();
-            this.EmployeesComboBox = new System.Windows.Forms.ComboBox();
-            this.RestaurantNameInput = new System.Windows.Forms.TextBox();
+            this.NameInput = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
+            this.RecipeListBox = new System.Windows.Forms.ListBox();
+            this.AddRecipeButton = new System.Windows.Forms.Button();
+            this.restaurantDbDataSet = new RestaurantDB.Presetation.RestaurantDbDataSet();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeesTableAdapter = new RestaurantDB.Presetation.RestaurantDbDataSetTableAdapters.EmployeesTableAdapter();
+            this.recipesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.recipesTableAdapter = new RestaurantDB.Presetation.RestaurantDbDataSetTableAdapters.RecipesTableAdapter();
+            this.kitchenModelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kitchenModelsTableAdapter = new RestaurantDB.Presetation.RestaurantDbDataSetTableAdapters.KitchenModelsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitchenModelsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // RestaurantEditTitle
@@ -53,7 +64,7 @@
             // 
             // EditButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(102, 244);
+            this.EditButton.Location = new System.Drawing.Point(83, 267);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(75, 23);
             this.EditButton.TabIndex = 11;
@@ -63,7 +74,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(196, 244);
+            this.CancelButton.Location = new System.Drawing.Point(172, 267);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 10;
@@ -74,7 +85,7 @@
             // KitchenModelLabel
             // 
             this.KitchenModelLabel.AutoSize = true;
-            this.KitchenModelLabel.Location = new System.Drawing.Point(14, 196);
+            this.KitchenModelLabel.Location = new System.Drawing.Point(14, 87);
             this.KitchenModelLabel.Name = "KitchenModelLabel";
             this.KitchenModelLabel.Size = new System.Drawing.Size(77, 13);
             this.KitchenModelLabel.TabIndex = 24;
@@ -82,52 +93,31 @@
             // 
             // KitchenModelComboBox
             // 
+            this.KitchenModelComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.kitchenModelsBindingSource, "Name", true));
+            this.KitchenModelComboBox.DataSource = this.kitchenModelsBindingSource;
+            this.KitchenModelComboBox.DisplayMember = "Name";
             this.KitchenModelComboBox.FormattingEnabled = true;
-            this.KitchenModelComboBox.Location = new System.Drawing.Point(150, 193);
+            this.KitchenModelComboBox.Location = new System.Drawing.Point(110, 84);
             this.KitchenModelComboBox.Name = "KitchenModelComboBox";
-            this.KitchenModelComboBox.Size = new System.Drawing.Size(121, 21);
+            this.KitchenModelComboBox.Size = new System.Drawing.Size(133, 21);
             this.KitchenModelComboBox.TabIndex = 23;
-            // 
-            // EmployeesLabel
-            // 
-            this.EmployeesLabel.AutoSize = true;
-            this.EmployeesLabel.Location = new System.Drawing.Point(14, 96);
-            this.EmployeesLabel.Name = "EmployeesLabel";
-            this.EmployeesLabel.Size = new System.Drawing.Size(61, 13);
-            this.EmployeesLabel.TabIndex = 22;
-            this.EmployeesLabel.Text = "Employees:";
+            this.KitchenModelComboBox.ValueMember = "Name";
             // 
             // RecipesLabel
             // 
             this.RecipesLabel.AutoSize = true;
-            this.RecipesLabel.Location = new System.Drawing.Point(14, 147);
+            this.RecipesLabel.Location = new System.Drawing.Point(14, 138);
             this.RecipesLabel.Name = "RecipesLabel";
             this.RecipesLabel.Size = new System.Drawing.Size(49, 13);
             this.RecipesLabel.TabIndex = 21;
             this.RecipesLabel.Text = "Recipes:";
             // 
-            // RecipesComboBox
+            // NameInput
             // 
-            this.RecipesComboBox.FormattingEnabled = true;
-            this.RecipesComboBox.Location = new System.Drawing.Point(150, 144);
-            this.RecipesComboBox.Name = "RecipesComboBox";
-            this.RecipesComboBox.Size = new System.Drawing.Size(121, 21);
-            this.RecipesComboBox.TabIndex = 20;
-            // 
-            // EmployeesComboBox
-            // 
-            this.EmployeesComboBox.FormattingEnabled = true;
-            this.EmployeesComboBox.Location = new System.Drawing.Point(150, 93);
-            this.EmployeesComboBox.Name = "EmployeesComboBox";
-            this.EmployeesComboBox.Size = new System.Drawing.Size(121, 21);
-            this.EmployeesComboBox.TabIndex = 19;
-            // 
-            // RestaurantNameInput
-            // 
-            this.RestaurantNameInput.Location = new System.Drawing.Point(96, 46);
-            this.RestaurantNameInput.Name = "RestaurantNameInput";
-            this.RestaurantNameInput.Size = new System.Drawing.Size(175, 20);
-            this.RestaurantNameInput.TabIndex = 18;
+            this.NameInput.Location = new System.Drawing.Point(110, 46);
+            this.NameInput.Name = "NameInput";
+            this.NameInput.Size = new System.Drawing.Size(133, 20);
+            this.NameInput.TabIndex = 18;
             // 
             // NameLabel
             // 
@@ -138,18 +128,71 @@
             this.NameLabel.TabIndex = 17;
             this.NameLabel.Text = "New name:";
             // 
+            // RecipeListBox
+            // 
+            this.RecipeListBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.recipesBindingSource, "Name", true));
+            this.RecipeListBox.DataSource = this.recipesBindingSource;
+            this.RecipeListBox.DisplayMember = "Name";
+            this.RecipeListBox.FormattingEnabled = true;
+            this.RecipeListBox.Location = new System.Drawing.Point(110, 138);
+            this.RecipeListBox.Name = "RecipeListBox";
+            this.RecipeListBox.Size = new System.Drawing.Size(132, 95);
+            this.RecipeListBox.TabIndex = 26;
+            this.RecipeListBox.ValueMember = "Name";
+            // 
+            // AddRecipeButton
+            // 
+            this.AddRecipeButton.Location = new System.Drawing.Point(17, 167);
+            this.AddRecipeButton.Name = "AddRecipeButton";
+            this.AddRecipeButton.Size = new System.Drawing.Size(75, 23);
+            this.AddRecipeButton.TabIndex = 28;
+            this.AddRecipeButton.Text = "Add recipe";
+            this.AddRecipeButton.UseVisualStyleBackColor = true;
+            this.AddRecipeButton.Click += new System.EventHandler(this.AddRecipeButton_Click);
+            // 
+            // restaurantDbDataSet
+            // 
+            this.restaurantDbDataSet.DataSetName = "RestaurantDbDataSet";
+            this.restaurantDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "Employees";
+            this.employeesBindingSource.DataSource = this.restaurantDbDataSet;
+            // 
+            // employeesTableAdapter
+            // 
+            this.employeesTableAdapter.ClearBeforeFill = true;
+            // 
+            // recipesBindingSource
+            // 
+            this.recipesBindingSource.DataMember = "Recipes";
+            this.recipesBindingSource.DataSource = this.restaurantDbDataSet;
+            // 
+            // recipesTableAdapter
+            // 
+            this.recipesTableAdapter.ClearBeforeFill = true;
+            // 
+            // kitchenModelsBindingSource
+            // 
+            this.kitchenModelsBindingSource.DataMember = "KitchenModels";
+            this.kitchenModelsBindingSource.DataSource = this.restaurantDbDataSet;
+            // 
+            // kitchenModelsTableAdapter
+            // 
+            this.kitchenModelsTableAdapter.ClearBeforeFill = true;
+            // 
             // RestaurantEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 279);
+            this.ClientSize = new System.Drawing.Size(274, 301);
+            this.Controls.Add(this.AddRecipeButton);
+            this.Controls.Add(this.RecipeListBox);
             this.Controls.Add(this.KitchenModelLabel);
             this.Controls.Add(this.KitchenModelComboBox);
-            this.Controls.Add(this.EmployeesLabel);
             this.Controls.Add(this.RecipesLabel);
-            this.Controls.Add(this.RecipesComboBox);
-            this.Controls.Add(this.EmployeesComboBox);
-            this.Controls.Add(this.RestaurantNameInput);
+            this.Controls.Add(this.NameInput);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.CancelButton);
@@ -157,6 +200,10 @@
             this.Name = "RestaurantEdit";
             this.Text = "RestaurantEdit";
             this.Load += new System.EventHandler(this.RestaurantEdit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kitchenModelsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,11 +216,17 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label KitchenModelLabel;
         private System.Windows.Forms.ComboBox KitchenModelComboBox;
-        private System.Windows.Forms.Label EmployeesLabel;
         private System.Windows.Forms.Label RecipesLabel;
-        private System.Windows.Forms.ComboBox RecipesComboBox;
-        private System.Windows.Forms.ComboBox EmployeesComboBox;
-        private System.Windows.Forms.TextBox RestaurantNameInput;
+        private System.Windows.Forms.TextBox NameInput;
         private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.ListBox RecipeListBox;
+        private System.Windows.Forms.Button AddRecipeButton;
+        private Presetation.RestaurantDbDataSet restaurantDbDataSet;
+        private System.Windows.Forms.BindingSource employeesBindingSource;
+        private Presetation.RestaurantDbDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
+        private System.Windows.Forms.BindingSource recipesBindingSource;
+        private Presetation.RestaurantDbDataSetTableAdapters.RecipesTableAdapter recipesTableAdapter;
+        private System.Windows.Forms.BindingSource kitchenModelsBindingSource;
+        private Presetation.RestaurantDbDataSetTableAdapters.KitchenModelsTableAdapter kitchenModelsTableAdapter;
     }
 }

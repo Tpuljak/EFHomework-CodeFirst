@@ -1,13 +1,7 @@
 ﻿using RestaurantDB.Data;
 using RestaurantDB.Data.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestaurantDB.Presentation
@@ -18,7 +12,7 @@ namespace RestaurantDB.Presentation
         {
             InitializeComponent();
             _context = context;
-            _employee = _context.Employees.Find(employee.PersonalIdNumber);
+            _employee = _context.Employees.First(x => x.PersonalIdNumber == employee.PersonalIdNumber);
             RestaurantListBox.DataSource = _context.Restaurants.ToList();
         }
 
@@ -27,14 +21,21 @@ namespace RestaurantDB.Presentation
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (EmployeeNameInput.Text != null && RoleSelection.SelectedItem != null && BirthYearInput.Text != null)
+            RestaurantListBox.ClearSelected();
+            if (NameInput.Text != null && RoleSelection.SelectedItem != null && BirthYearInput.Text != null && RestaurantListBox.SelectedItem != null)
             {
-                _employee.Name = EmployeeNameInput.Text;
+                _employee.Name = NameInput.Text;
                 _employee.Role = (Role)RoleSelection.SelectedIndex;
                 string selectedRestName = RestaurantListBox.SelectedValue.ToString();
                 _employee.Restaurant = _context.Restaurants.First(x => x.Name == selectedRestName);
             }
 
+            else
+            {
+                MessageBox.Show("All fields are required!");
+                return;
+            }
+                
             _context.SaveChanges();
             Close();
             return;
@@ -48,9 +49,7 @@ namespace RestaurantDB.Presentation
 
         private void EmployeeEdit_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'restaurantDbDataSet.Restaurants' table. You can move, or remove it, as needed.
-            this.restaurantsTableAdapter.Fill(this.restaurantDbDataSet.Restaurants);
-
+            NameInput.Text = _employee.Name;
         }
     }
 }

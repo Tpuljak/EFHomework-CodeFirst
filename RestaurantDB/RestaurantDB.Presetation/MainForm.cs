@@ -2,13 +2,7 @@
 using RestaurantDB.Data.Models;
 using RestaurantDB.Presetation;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestaurantDB.Presentation
@@ -20,25 +14,25 @@ namespace RestaurantDB.Presentation
             InitializeComponent();
             _context = new RestaurantContext();
             var a = _context.KitchenModels.ToList();
+            RestaurantsGrid.DataSource = _context.Restaurants.ToList();
+            RecipesGrid.DataSource = _context.Recepies.ToList();
+            IngredientsGrid.DataSource = _context.Ingredients.ToList();
+            EmployeeGrid.DataSource = _context.Employees.ToList();
         }
 
         private readonly RestaurantContext _context;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'restaurantDbDataSet.Restaurants' table. You can move, or remove it, as needed.
-            this.restaurantsTableAdapter.Fill(this.restaurantDbDataSet.Restaurants);
-            // TODO: This line of code loads data into the 'restaurantDbDataSet.Recipes' table. You can move, or remove it, as needed.
-            this.recipesTableAdapter.Fill(this.restaurantDbDataSet.Recipes);
-            // TODO: This line of code loads data into the 'restaurantDbDataSet.Ingredients' table. You can move, or remove it, as needed.
-            this.ingredientsTableAdapter.Fill(this.restaurantDbDataSet.Ingredients);
             // TODO: This line of code loads data into the 'restaurantDbDataSet.KitchenModels' table. You can move, or remove it, as needed.
             this.kitchenModelsTableAdapter.Fill(this.restaurantDbDataSet.KitchenModels);
-            // TODO: This line of code loads data into the 'restaurantDbDataSet.Employees' table. You can move, or remove it, as needed.
-            this.employeesTableAdapter.Fill(this.restaurantDbDataSet.Employees);
             KitchenModelGrid.Visible = false;
             RestaurantsPanel.Visible = false;
             RecipePanel.Visible = false;
+            RestaurantsGrid.ClearSelected();
+            EmployeeGrid.ClearSelected();
+            RecipesGrid.ClearSelected();
+            IngredientsGrid.ClearSelected();
         }
 
         private void RecipesButton_Click(object sender, EventArgs e)
@@ -100,8 +94,11 @@ namespace RestaurantDB.Presentation
 
         private void EditRestaurantButton_Click(object sender, EventArgs e)
         {
-            RestaurantEdit newRestaurantEdit = new RestaurantEdit(_context);
+            Restaurant selectedRestToEdit = new Restaurant();
+            selectedRestToEdit = _context.Restaurants.First(x => x.Name == RestaurantsGrid.SelectedValue.ToString());
+            RestaurantEdit newRestaurantEdit = new RestaurantEdit(selectedRestToEdit, _context);
             newRestaurantEdit.ShowDialog();
+            RestaurantsGrid.DataSource = _context.Restaurants.ToList();
         }
 
         private void AddRestaurantButton_Click(object sender, EventArgs e)
@@ -123,6 +120,7 @@ namespace RestaurantDB.Presentation
 
             _context.Restaurants.Remove(restaurantToDel);
             _context.SaveChanges();
+            if (_context.Restaurants.Count() == 0) KitchenModelText.Text = " ";
             RestaurantsGrid.DataSource = _context.Restaurants.ToList();
         }
 
@@ -154,10 +152,14 @@ namespace RestaurantDB.Presentation
 
         private void RestaurantGrid_SelectionChanged(object sender, EventArgs e)
         {
-            EditButton.Enabled = true;
-            DeleteButton.Enabled = true;
-            string selectedRestaurantName = RestaurantsGrid.SelectedValue.ToString();
-            KitchenModelText.Text = _context.Restaurants.FirstOrDefault(x => x.Name == selectedRestaurantName).KitchenModel.Name;
+            string selectedRestaurantName;
+            if (RestaurantsGrid.SelectedValue != null)
+            {
+                selectedRestaurantName = RestaurantsGrid.SelectedValue.ToString();
+                KitchenModelText.Text = _context.Restaurants.FirstOrDefault(x => x.Name == selectedRestaurantName).KitchenModel.Name;
+                EditButton.Enabled = true;
+                DeleteButton.Enabled = true;
+            }
         }
 
         private void DeleteEmployeeButton_Click(object sender, EventArgs e)
@@ -172,14 +174,20 @@ namespace RestaurantDB.Presentation
 
         private void RecipeGrid_SelectionChanged(object sender, EventArgs e)
         {
-            EditButton2.Enabled = true;
-            DeleteButton2.Enabled = true;
+            if(RecipesGrid.SelectedValue != null)
+            {
+                EditButton2.Enabled = true;
+                DeleteButton2.Enabled = true;
+            }       
         }
 
         private void EmployeeGrid_SelectionChanged(object sender, EventArgs e)
         {
-            EditButton3.Enabled = true;
-            DeleteButton3.Enabled = true;
+            if(EmployeeGrid.SelectedValue != null)
+            {
+                EditButton3.Enabled = true;
+                DeleteButton3.Enabled = true;
+            }
         }
 
 

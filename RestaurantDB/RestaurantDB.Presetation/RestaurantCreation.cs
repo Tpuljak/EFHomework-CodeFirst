@@ -2,12 +2,7 @@
 using RestaurantDB.Data.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RestaurantDB.Presentation
@@ -21,6 +16,7 @@ namespace RestaurantDB.Presentation
             _restaurant = new Restaurant();
             _recipes = new List<Recipe>();
             _recipes = _context.Recepies.ToList();
+            RecipeListBox.DataSource = _recipes;
         }
 
         private readonly RestaurantContext _context;
@@ -31,8 +27,6 @@ namespace RestaurantDB.Presentation
         {
             // TODO: This line of code loads data into the 'restaurantDbDataSet.KitchenModels' table. You can move, or remove it, as needed.
             this.kitchenModelsTableAdapter.Fill(this.restaurantDbDataSet.KitchenModels);
-            // TODO: This line of code loads data into the 'restaurantDbDataSet.Recipes' table. You can move, or remove it, as needed.
-            this.recipesTableAdapter.Fill(this.restaurantDbDataSet.Recipes);
         }
 
         private void AddButton_Click(object sender, EventArgs e)

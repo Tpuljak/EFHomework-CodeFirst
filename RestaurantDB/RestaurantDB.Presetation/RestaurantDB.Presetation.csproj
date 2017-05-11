@@ -137,6 +137,9 @@
     <EmbeddedResource Include="RestaurantCreation.resx">
       <DependentUpon>RestaurantCreation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RestaurantEdit.resx">
+      <DependentUpon>RestaurantEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
