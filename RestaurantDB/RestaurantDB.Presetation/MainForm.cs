@@ -14,6 +14,7 @@ namespace RestaurantDB.Presentation
             InitializeComponent();
             _context = new RestaurantContext();
             var a = _context.KitchenModels.ToList();
+            
             RestaurantsGrid.DataSource = _context.Restaurants.ToList();
             RecipesGrid.DataSource = _context.Recepies.ToList();
             IngredientsGrid.DataSource = _context.Ingredients.ToList();
@@ -67,6 +68,7 @@ namespace RestaurantDB.Presentation
                 MessageBox.Show("No ingredients created yet...");
                 return;
             }
+            
             RecipeCreation newRecipeCreation = new RecipeCreation(_context);
             newRecipeCreation.ShowDialog();
             IngredientsGrid.DataSource = _context.Ingredients.ToList();
@@ -77,6 +79,7 @@ namespace RestaurantDB.Presentation
         {
             Recipe selectedRecipeToEdit = new Recipe();
             selectedRecipeToEdit = _context.Recepies.First(x => x.Name == RecipesGrid.SelectedValue.ToString());
+            
             RecipeEdit newRecipeEdit = new RecipeEdit(selectedRecipeToEdit, _context);
             newRecipeEdit.ShowDialog();
             RecipesGrid.DataSource = _context.Recepies.ToList();
@@ -89,6 +92,7 @@ namespace RestaurantDB.Presentation
 
             _context.Recepies.Remove(recipeToDel);
             _context.SaveChanges();
+            
             RecipesGrid.DataSource = _context.Recepies.ToList();
         }
 
@@ -96,6 +100,7 @@ namespace RestaurantDB.Presentation
         {
             Restaurant selectedRestToEdit = new Restaurant();
             selectedRestToEdit = _context.Restaurants.First(x => x.Name == RestaurantsGrid.SelectedValue.ToString());
+            
             RestaurantEdit newRestaurantEdit = new RestaurantEdit(selectedRestToEdit, _context);
             newRestaurantEdit.ShowDialog();
             RestaurantsGrid.DataSource = _context.Restaurants.ToList();
@@ -108,6 +113,7 @@ namespace RestaurantDB.Presentation
                 MessageBox.Show("No recipes created yet...");
                 return;
             }
+            
             RestaurantCreation newRestaurantCreation = new RestaurantCreation(_context);
             newRestaurantCreation.ShowDialog();
             RestaurantsGrid.DataSource = _context.Restaurants.ToList();
@@ -120,8 +126,10 @@ namespace RestaurantDB.Presentation
 
             _context.Restaurants.Remove(restaurantToDel);
             _context.SaveChanges();
+            
             if (_context.Restaurants.Count() == 0) KitchenModelText.Text = " ";
             RestaurantsGrid.DataSource = _context.Restaurants.ToList();
+            EmployeeGrid.DataSource = _context.Employee.ToList();
         }
 
         private void AddEmployeeButton_Click(object sender, EventArgs e)
@@ -141,9 +149,8 @@ namespace RestaurantDB.Presentation
         private void EditEmployeeButton_Click(object sender, EventArgs e)
         {
             Employee emplToEdit = new Employee();
-
-            string selectedEmlName = EmployeeGrid.SelectedValue.ToString();
-            emplToEdit = _context.Employees.First(x => x.Name == selectedEmlName);
+            emplToEdit = _context.Employees.First(x => x.Name == EmployeeGrid.SelectedValue.ToString());
+            
             EmployeeEdit newEmployeeEdit = new EmployeeEdit(emplToEdit, _context);
             newEmployeeEdit.ShowDialog();
 
@@ -152,11 +159,9 @@ namespace RestaurantDB.Presentation
 
         private void RestaurantGrid_SelectionChanged(object sender, EventArgs e)
         {
-            string selectedRestaurantName;
             if (RestaurantsGrid.SelectedValue != null)
             {
-                selectedRestaurantName = RestaurantsGrid.SelectedValue.ToString();
-                KitchenModelText.Text = _context.Restaurants.FirstOrDefault(x => x.Name == selectedRestaurantName).KitchenModel.Name;
+                KitchenModelText.Text = _context.Restaurants.FirstOrDefault(x => x.Name == RestaurantsGrid.SelectedValue.ToString()).KitchenModel.Name;
                 EditButton.Enabled = true;
                 DeleteButton.Enabled = true;
             }
