@@ -17,6 +17,7 @@ namespace RestaurantDB.Presentation
             _restaurant.Employees.Clear();
             _restaurant.Recipes.Clear();
             _recipes = _context.Recepies.ToList();
+            
             RecipeListBox.DataSource = _recipes;
         }
 
