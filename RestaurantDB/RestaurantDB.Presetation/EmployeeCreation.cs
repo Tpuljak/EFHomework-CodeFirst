@@ -15,6 +15,7 @@ namespace RestaurantDB.Presentation
             _employee = new Employee();
             
             RestaurantListBox.DataSource = _context.Restaurants.ToList();
+
         }
 
         private readonly RestaurantContext _context;
@@ -22,7 +23,7 @@ namespace RestaurantDB.Presentation
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (EmployeeNameInput.Text != null && RoleSelection.SelectedItem != null && IdNumberInput.Text != null && YearOfBirthInput.Text != null)
+            if (EmployeeNameInput.Text != null && RoleSelection.SelectedItem != null && IdNumberInput.Text != null && YearOfBirthInput.Text != null && RestaurantListBox.SelectedItem != null)
             {
                 _employee.Name = EmployeeNameInput.Text;
                 _employee.Role = (Role)RoleSelection.SelectedIndex;

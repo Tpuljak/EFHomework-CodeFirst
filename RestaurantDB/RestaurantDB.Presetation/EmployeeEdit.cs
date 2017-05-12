@@ -14,7 +14,7 @@ namespace RestaurantDB.Presentation
             _context = context;
             _employee = new Employee();
             _employee = _context.Employees.First(x => x.PersonalIdNumber == employee.PersonalIdNumber);
-            
+
             RestaurantListBox.DataSource = _context.Restaurants.ToList();
         }
 
@@ -23,14 +23,33 @@ namespace RestaurantDB.Presentation
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            RestaurantListBox.ClearSelected();
-            if (NameInput.Text != null && RoleSelection.SelectedItem != null && BirthYearInput.Text != null && RestaurantListBox.SelectedItem != null)
+            if (NameInput.Text != null && RoleSelection.SelectedItem != null && BirthYearInput.Text != null && RestaurantListBox.SelectedValue != null)
             {
                 _employee.Name = NameInput.Text;
                 _employee.Role = (Role)RoleSelection.SelectedIndex;
                 _employee.Restaurant = _context.Restaurants.First(x => x.Name == RestaurantListBox.SelectedValue.ToString());
             }
 
+            else if (NameInput.Text == null)
+            {
+                MessageBox.Show("Name");
+                return;
+            }
+            else if (RoleSelection.SelectedItem == null)
+            {
+                MessageBox.Show("Role");
+                return;
+            }
+            else if (BirthYearInput.Text == null)
+            {
+                MessageBox.Show("Year");
+                return;
+            }
+            else if (RestaurantListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Restaurant");
+                return;
+            }
             else
             {
                 MessageBox.Show("All fields are required!");

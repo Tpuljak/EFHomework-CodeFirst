@@ -107,9 +107,9 @@
             this.TimeToMakeLabel.AutoSize = true;
             this.TimeToMakeLabel.Location = new System.Drawing.Point(27, 96);
             this.TimeToMakeLabel.Name = "TimeToMakeLabel";
-            this.TimeToMakeLabel.Size = new System.Drawing.Size(123, 13);
+            this.TimeToMakeLabel.Size = new System.Drawing.Size(119, 13);
             this.TimeToMakeLabel.TabIndex = 17;
-            this.TimeToMakeLabel.Text = "Time to make (seconds):";
+            this.TimeToMakeLabel.Text = "Time to make (minutes):";
             // 
             // TimeToMakeInput
             // 

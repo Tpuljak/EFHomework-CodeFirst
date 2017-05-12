@@ -2,6 +2,7 @@
 using RestaurantDB.Data.Models;
 using RestaurantDB.Presetation;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,11 +15,6 @@ namespace RestaurantDB.Presentation
             InitializeComponent();
             _context = new RestaurantContext();
             var a = _context.KitchenModels.ToList();
-            
-            RestaurantsGrid.DataSource = _context.Restaurants.ToList();
-            RecipesGrid.DataSource = _context.Recepies.ToList();
-            IngredientsGrid.DataSource = _context.Ingredients.ToList();
-            EmployeeGrid.DataSource = _context.Employees.ToList();
         }
 
         private readonly RestaurantContext _context;
@@ -30,10 +26,22 @@ namespace RestaurantDB.Presentation
             KitchenModelGrid.Visible = false;
             RestaurantsPanel.Visible = false;
             RecipePanel.Visible = false;
+            RestaurantsGrid.DataSource = _context.Restaurants.ToList();
+            RecipesGrid.DataSource = _context.Recepies.ToList();
+            IngredientsGrid.DataSource = _context.Ingredients.ToList();
+            EmployeeGrid.DataSource = _context.Employees.ToList();
             RestaurantsGrid.ClearSelected();
             EmployeeGrid.ClearSelected();
             RecipesGrid.ClearSelected();
             IngredientsGrid.ClearSelected();
+            KitchenModelText.Text = " ";
+            EditButton.Enabled = false;
+            DeleteButton.Enabled = false;
+            EditButton2.Enabled = false;
+            DeleteButton2.Enabled = false;
+            EditButton3.Enabled = false;
+            DeleteButton3.Enabled = false;
+
         }
 
         private void RecipesButton_Click(object sender, EventArgs e)
@@ -90,6 +98,16 @@ namespace RestaurantDB.Presentation
             Recipe recipeToDel = new Recipe();
             recipeToDel = _context.Recepies.First(x => x.Name == RecipesGrid.SelectedValue.ToString());
 
+            Ingredient ingredientToModify = new Ingredient();
+            foreach (var ingredient in _context.Ingredients)
+            {
+                if(ingredient.Recipes.Contains(recipeToDel))
+                {
+                    ingredientToModify = _context.Ingredients.First(x => x.Id == ingredient.Id);
+                    ingredientToModify.Recipes.Remove(recipeToDel);
+                }
+            }
+
             _context.Recepies.Remove(recipeToDel);
             _context.SaveChanges();
             
@@ -129,7 +147,7 @@ namespace RestaurantDB.Presentation
             
             if (_context.Restaurants.Count() == 0) KitchenModelText.Text = " ";
             RestaurantsGrid.DataSource = _context.Restaurants.ToList();
-            EmployeeGrid.DataSource = _context.Employee.ToList();
+            EmployeeGrid.DataSource = _context.Employees.ToList();
         }
 
         private void AddEmployeeButton_Click(object sender, EventArgs e)

@@ -42,11 +42,11 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.RestaurantLabel = new System.Windows.Forms.Label();
             this.RestaurantListBox = new System.Windows.Forms.ListBox();
-            this.restaurantDbDataSet = new RestaurantDB.Presetation.RestaurantDbDataSet();
             this.restaurantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.restaurantDbDataSet = new RestaurantDB.Presetation.RestaurantDbDataSet();
             this.restaurantsTableAdapter = new RestaurantDB.Presetation.RestaurantDbDataSetTableAdapters.RestaurantsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // EmployeeCreationTitle
@@ -159,7 +159,7 @@
             // 
             // RestaurantListBox
             // 
-            this.RestaurantListBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restaurantsBindingSource, "Id", true));
+            this.RestaurantListBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restaurantsBindingSource, "Name", true));
             this.RestaurantListBox.DataSource = this.restaurantsBindingSource;
             this.RestaurantListBox.DisplayMember = "Name";
             this.RestaurantListBox.FormattingEnabled = true;
@@ -169,15 +169,15 @@
             this.RestaurantListBox.TabIndex = 22;
             this.RestaurantListBox.ValueMember = "Name";
             // 
-            // restaurantDbDataSet
-            // 
-            this.restaurantDbDataSet.DataSetName = "RestaurantDbDataSet";
-            this.restaurantDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // restaurantsBindingSource
             // 
             this.restaurantsBindingSource.DataMember = "Restaurants";
             this.restaurantsBindingSource.DataSource = this.restaurantDbDataSet;
+            // 
+            // restaurantDbDataSet
+            // 
+            this.restaurantDbDataSet.DataSetName = "RestaurantDbDataSet";
+            this.restaurantDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // restaurantsTableAdapter
             // 
@@ -204,8 +204,8 @@
             this.Name = "EmployeeCreation";
             this.Text = "EmployeeCreation";
             this.Load += new System.EventHandler(this.EmployeeCreation_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restaurantDbDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
