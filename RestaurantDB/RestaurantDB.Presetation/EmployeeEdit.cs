@@ -14,6 +14,7 @@ namespace RestaurantDB.Presentation
             _context = context;
             _employee = new Employee();
             _employee = _context.Employees.First(x => x.PersonalIdNumber == employee.PersonalIdNumber);
+            
             RestaurantListBox.DataSource = _context.Restaurants.ToList();
         }
 
@@ -27,8 +28,7 @@ namespace RestaurantDB.Presentation
             {
                 _employee.Name = NameInput.Text;
                 _employee.Role = (Role)RoleSelection.SelectedIndex;
-                string selectedRestName = RestaurantListBox.SelectedValue.ToString();
-                _employee.Restaurant = _context.Restaurants.First(x => x.Name == selectedRestName);
+                _employee.Restaurant = _context.Restaurants.First(x => x.Name == RestaurantListBox.SelectedValue.ToString());
             }
 
             else
