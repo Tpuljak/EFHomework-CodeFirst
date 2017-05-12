@@ -16,6 +16,7 @@ namespace RestaurantDB.Presentation
             _restaurant = new Restaurant();
             _recipes = new List<Recipe>();
             _recipes = _context.Recepies.ToList();
+            
             RecipeListBox.DataSource = _recipes;
         }
 
@@ -52,14 +53,13 @@ namespace RestaurantDB.Presentation
         private void AddRecipeButton_Click(object sender, EventArgs e)
         {
             Recipe selectedRecipe = new Recipe();
-            selectedRecipe = (_context.Recepies.FirstOrDefault(x => x.Name == RecipeListBox.SelectedValue.ToString()));
+            selectedRecipe = _context.Recepies.FirstOrDefault(x => x.Name == RecipeListBox.SelectedValue.ToString());
             _restaurant.Recipes.Add(selectedRecipe);
             _recipes.Remove(selectedRecipe);
 
             if (_recipes.Count() == 0) AddRecipeButton.Enabled = false;
             RecipeListBox.DataSource = _recipes.ToList();
             RecipeListBox.DisplayMember = "Name";
-            
         }
     }
 }
