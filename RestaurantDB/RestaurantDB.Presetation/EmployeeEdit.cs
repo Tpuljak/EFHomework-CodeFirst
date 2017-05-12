@@ -12,6 +12,7 @@ namespace RestaurantDB.Presentation
         {
             InitializeComponent();
             _context = context;
+            _employee = new Employee();
             _employee = _context.Employees.First(x => x.PersonalIdNumber == employee.PersonalIdNumber);
             RestaurantListBox.DataSource = _context.Restaurants.ToList();
         }
