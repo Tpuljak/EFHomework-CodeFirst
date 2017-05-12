@@ -13,6 +13,8 @@ namespace RestaurantDB.Presentation
             InitializeComponent();
             _context = context;
             _employee = new Employee();
+            
+            RestaurantListBox.DataSource = _context.Restaurants.ToList();
         }
 
         private readonly RestaurantContext _context;
@@ -30,10 +32,10 @@ namespace RestaurantDB.Presentation
             else
                 MessageBox.Show("All fields are required!");
 
-            string selectedRestName = RestaurantListBox.SelectedValue.ToString();
-            _employee.Restaurant = _context.Restaurants.FirstOrDefault(x => x.Name == selectedRestName);
+            _employee.Restaurant = _context.Restaurants.FirstOrDefault(x => x.Name == RestaurantListBox.SelectedValue.ToString());
             _context.Employees.Add(_employee);
             _context.SaveChanges();
+            
             Close();
             return;
         }
@@ -45,10 +47,7 @@ namespace RestaurantDB.Presentation
         }
 
         private void EmployeeCreation_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'restaurantDbDataSet.Restaurants' table. You can move, or remove it, as needed.
-            this.restaurantsTableAdapter.Fill(this.restaurantDbDataSet.Restaurants);
-
+        {  
         }
     }
 }
