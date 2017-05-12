@@ -16,6 +16,7 @@ namespace RestaurantDB.Presentation
             _recipe = new Recipe();
             _ingredients = new List<Ingredient>();
             _ingredients = _context.Ingredients.ToList();
+            
             IngredientsListBox.DataSource = _ingredients;
         }
 
@@ -41,6 +42,7 @@ namespace RestaurantDB.Presentation
                 MessageBox.Show("All fields required!");
                 return;
             }
+            
             _context.Recepies.Add(_recipe);
             _context.SaveChanges();
             Close();
@@ -50,7 +52,7 @@ namespace RestaurantDB.Presentation
         private void AddIngredientButton_Click(object sender, EventArgs e)
         {
             Ingredient selectedIngredient = new Ingredient();
-            selectedIngredient = (_context.Ingredients.FirstOrDefault(x => x.Name == IngredientsListBox.SelectedValue.ToString()));
+            selectedIngredient = _context.Ingredients.FirstOrDefault(x => x.Name == IngredientsListBox.SelectedValue.ToString());
             _recipe.Ingredients.Add(selectedIngredient);
             _ingredients.Remove(selectedIngredient);
 
